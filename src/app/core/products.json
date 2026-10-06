@@ -1,0 +1,536 @@
+[
+  {
+    "id": 1,
+    "name": "Pump Cover Cross Logo",
+    "image": "images/pump-cover-1.png",
+    "price": 300,
+    "availableSizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL"
+    ],
+    "availableTypes": [
+      "Normal",
+      "V-Neck"
+    ],
+    "availableColors": [
+      "White",
+      "Khaki",
+      "Pink",
+      "Yellow",
+      "Orange",
+      "Emerald",
+      "Bottle Green",
+      "Red",
+      "Burgundy",
+      "Royal Blue",
+      "Navy Blue",
+      "Grey Melange",
+      "Graphite Melange",
+      "Charcoal Melange",
+      "Black"
+    ],
+    "category": "Pump Covers",
+    "description": "100% cotton. A relaxed training essential with a faith-inspired design."
+  },
+  {
+    "id": 2,
+    "name": "Pump Cover EPH 2:8-9",
+    "image": "images/pump-cover-2.png",
+    "price": 300,
+    "availableSizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL"
+    ],
+    "availableTypes": [
+      "Normal",
+      "V-Neck"
+    ],
+    "availableColors": [
+      "White",
+      "Khaki",
+      "Pink",
+      "Yellow",
+      "Orange",
+      "Emerald",
+      "Bottle Green",
+      "Red",
+      "Burgundy",
+      "Royal Blue",
+      "Navy Blue",
+      "Grey Melange",
+      "Graphite Melange",
+      "Charcoal Melange",
+      "Black"
+    ],
+    "category": "Pump Covers",
+    "description": "100% cotton. A relaxed training essential with a faith-inspired design."
+  },
+  {
+    "id": 3,
+    "name": "Pump Cover EPH 5:15-16",
+    "image": "images/pump-cover-3.png",
+    "price": 300,
+    "availableSizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL"
+    ],
+    "availableTypes": [
+      "Normal",
+      "V-Neck"
+    ],
+    "availableColors": [
+      "White",
+      "Khaki",
+      "Pink",
+      "Yellow",
+      "Orange",
+      "Emerald",
+      "Bottle Green",
+      "Red",
+      "Burgundy",
+      "Royal Blue",
+      "Navy Blue",
+      "Grey Melange",
+      "Graphite Melange",
+      "Charcoal Melange",
+      "Black"
+    ],
+    "category": "Pump Covers",
+    "description": "100% cotton. A relaxed training essential with a faith-inspired design."
+  },
+  {
+    "id": 4,
+    "name": "Pump Cover IS 41:10",
+    "image": "images/pump-cover-4.png",
+    "price": 300,
+    "availableSizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL"
+    ],
+    "availableTypes": [
+      "Normal",
+      "V-Neck"
+    ],
+    "availableColors": [
+      "White",
+      "Khaki",
+      "Pink",
+      "Yellow",
+      "Orange",
+      "Emerald",
+      "Bottle Green",
+      "Red",
+      "Burgundy",
+      "Royal Blue",
+      "Navy Blue",
+      "Grey Melange",
+      "Graphite Melange",
+      "Charcoal Melange",
+      "Black"
+    ],
+    "category": "Pump Covers",
+    "description": "100% cotton. A relaxed training essential with a faith-inspired design."
+  },
+  {
+    "id": 5,
+    "name": "Pump Cover Ps 27:13",
+    "image": "images/pump-cover-5.png",
+    "price": 300,
+    "availableSizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL"
+    ],
+    "availableTypes": [
+      "Normal",
+      "V-Neck"
+    ],
+    "availableColors": [
+      "White",
+      "Khaki",
+      "Pink",
+      "Yellow",
+      "Orange",
+      "Emerald",
+      "Bottle Green",
+      "Red",
+      "Burgundy",
+      "Royal Blue",
+      "Navy Blue",
+      "Grey Melange",
+      "Graphite Melange",
+      "Charcoal Melange",
+      "Black"
+    ],
+    "category": "Pump Covers",
+    "description": "100% cotton. A relaxed training essential with a faith-inspired design."
+  },
+  {
+    "id": 6,
+    "name": "Pump Cover Ps 28:7",
+    "image": "images/pump-cover-6.png",
+    "price": 300,
+    "availableSizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL"
+    ],
+    "availableTypes": [
+      "Normal",
+      "V-Neck"
+    ],
+    "availableColors": [
+      "White",
+      "Khaki",
+      "Pink",
+      "Yellow",
+      "Orange",
+      "Emerald",
+      "Bottle Green",
+      "Red",
+      "Burgundy",
+      "Royal Blue",
+      "Navy Blue",
+      "Grey Melange",
+      "Graphite Melange",
+      "Charcoal Melange",
+      "Black"
+    ],
+    "category": "Pump Covers",
+    "description": "100% cotton. A relaxed training essential with a faith-inspired design."
+  },
+  {
+    "id": 7,
+    "name": "Pump Cover Rom 8:18",
+    "image": "images/pump-cover-7.png",
+    "price": 300,
+    "availableSizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL"
+    ],
+    "availableTypes": [
+      "Normal",
+      "V-Neck"
+    ],
+    "availableColors": [
+      "White",
+      "Khaki",
+      "Pink",
+      "Yellow",
+      "Orange",
+      "Emerald",
+      "Bottle Green",
+      "Red",
+      "Burgundy",
+      "Royal Blue",
+      "Navy Blue",
+      "Grey Melange",
+      "Graphite Melange",
+      "Charcoal Melange",
+      "Black"
+    ],
+    "category": "Pump Covers",
+    "description": "100% cotton. A relaxed training essential with a faith-inspired design."
+  },
+  {
+    "id": 8,
+    "name": "Training Shirts",
+    "image": "images/training-shirt-1.png",
+    "price": 300,
+    "availableSizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "availableTypes": [
+      "Standard"
+    ],
+    "availableColors": [
+      "White",
+      "Royal Blue",
+      "Black",
+      "Slate Grey"
+    ],
+    "category": "Training Shirts & Vests",
+    "description": "Made for movement. Your everyday companion for training with purpose."
+  },
+  {
+    "id": 9,
+    "name": "Training Vests",
+    "image": "images/training-vest-1.png",
+    "price": 250,
+    "availableSizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "availableTypes": [
+      "Standard"
+    ],
+    "availableColors": [
+      "White",
+      "Grey Melange",
+      "Black"
+    ],
+    "category": "Training Shirts & Vests",
+    "description": "Made for movement. Your everyday companion for training with purpose."
+  },
+  {
+    "id": 10,
+    "name": "Ladies Training Vests",
+    "image": "images/training-vest-ladies-1.png",
+    "price": 250,
+    "availableSizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "availableTypes": [
+      "Standard"
+    ],
+    "availableColors": [
+      "White",
+      "Grey Melange",
+      "Black"
+    ],
+    "category": "Training Shirts & Vests",
+    "description": "Made for movement. Your everyday companion for training with purpose."
+  },
+  {
+    "id": 11,
+    "name": "Joggers",
+    "image": "images/joggers.png",
+    "price": 400,
+    "availableSizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "availableTypes": [
+      "Standard"
+    ],
+    "availableColors": [
+      "Navy Blue",
+      "Grey Melange",
+      "Black"
+    ],
+    "category": "Joggers & Leggings",
+    "description": "Comfort and flexibility, from your workout to your rest day."
+  },
+  {
+    "id": 12,
+    "name": "Leggings",
+    "image": "images/leggings.png",
+    "price": 250,
+    "availableSizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "availableTypes": [
+      "Standard"
+    ],
+    "availableColors": [
+      "Navy Blue",
+      "Grey Melange",
+      "Black"
+    ],
+    "category": "Joggers & Leggings",
+    "description": "Comfort and flexibility, from your workout to your rest day."
+  },
+  {
+    "id": 13,
+    "name": "Hoodies",
+    "image": "images/hoodies.png",
+    "price": 450,
+    "availableSizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL"
+    ],
+    "availableTypes": [
+      "Standard"
+    ],
+    "availableColors": [
+      "White",
+      "Khaki",
+      "Pink",
+      "Yellow",
+      "Orange",
+      "Emerald",
+      "Bottle Green",
+      "Red",
+      "Burgundy",
+      "Royal Blue",
+      "Navy Blue",
+      "Grey Melange",
+      "Graphite Melange",
+      "Charcoal Melange",
+      "Black"
+    ],
+    "category": "Hoodies & Sweaters",
+    "description": "60% cotton, 40% polyester. An extra layer for cooler days."
+  },
+  {
+    "id": 14,
+    "name": "Sweaters",
+    "image": "images/sweaters.png",
+    "price": 400,
+    "availableSizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL"
+    ],
+    "availableTypes": [
+      "Standard"
+    ],
+    "availableColors": [
+      "White",
+      "Khaki",
+      "Pink",
+      "Yellow",
+      "Orange",
+      "Emerald",
+      "Bottle Green",
+      "Red",
+      "Burgundy",
+      "Royal Blue",
+      "Navy Blue",
+      "Grey Melange",
+      "Graphite Melange",
+      "Charcoal Melange",
+      "Black"
+    ],
+    "category": "Hoodies & Sweaters",
+    "description": "60% cotton, 40% polyester. An extra layer for cooler days."
+  },
+  {
+    "id": 15,
+    "name": "Fitted Cap",
+    "image": "images/fitted-cap.png",
+    "price": 350,
+    "availableSizes": [
+      "Standard"
+    ],
+    "availableTypes": [
+      "Standard"
+    ],
+    "availableColors": [
+      "Black",
+      "Charcoal Melange",
+      "Royal Blue"
+    ],
+    "category": "Head Wear",
+    "description": "Finish your everyday look with Ephesians Fitness headwear."
+  },
+  {
+    "id": 16,
+    "name": "Signature Snapback Cap",
+    "image": "images/signature-snapback-cap.png",
+    "price": 250,
+    "availableSizes": [
+      "Standard"
+    ],
+    "availableTypes": [
+      "Standard"
+    ],
+    "availableColors": [
+      "Denim Blue",
+      "Grey Melange",
+      "Graphite Grey"
+    ],
+    "category": "Head Wear",
+    "description": "Finish your everyday look with Ephesians Fitness headwear."
+  },
+  {
+    "id": 17,
+    "name": "Skull Beanie",
+    "image": "images/skull-beanie.png",
+    "price": 120,
+    "availableSizes": [
+      "Standard"
+    ],
+    "availableTypes": [
+      "Standard"
+    ],
+    "availableColors": [
+      "Black",
+      "Navy Blue",
+      "Bottle Green",
+      "Red"
+    ],
+    "category": "Head Wear",
+    "description": "Finish your everyday look with Ephesians Fitness headwear."
+  }
+]

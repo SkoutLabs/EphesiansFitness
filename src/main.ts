@@ -1,0 +1,10 @@
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeuix/themes/aura';
+import { definePreset } from '@primeuix/themes';
+import { AppComponent } from './app/app.component';
+import { routes } from './app/app.routes';
+import { provideHttpClient } from '@angular/common/http';
+const theme = definePreset(Aura, { semantic: { primary: { 50: '#eef5f1', 100: '#d7e7df', 200: '#b0cfc0', 300: '#83b099', 400: '#548f73', 500: '#326f54', 600: '#255945', 700: '#183d34', 800: '#143329', 900: '#10281f', 950: '#071a13' } } });
+bootstrapApplication(AppComponent, { providers: [provideHttpClient(), provideRouter(routes, withInMemoryScrolling({ scrollPositionRestoration: 'enabled' })), providePrimeNG({ theme: { preset: theme, options: { darkModeSelector: false } } })] }).catch(console.error);

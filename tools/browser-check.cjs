@@ -1,0 +1,54 @@
+const {chromium,expect}=require('@playwright/test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+let debugPage;
+async function main(){
+ const browser=await chromium.launch({channel:'chrome',headless:true});
+ const page=await browser.newPage({viewport:{width:1440,height:1000}});
+ debugPage=page;
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ fs.mkdirSync('docs/preview',{recursive:true});
+ const visit=async(path)=>{await page.goto('http://127.0.0.1:4200'+path);await page.locator('h1').waitFor();await page.evaluate(()=>document.fonts.ready);};
+ const checkWidth=async()=>assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Horizontal overflow');
+ await visit('/');await page.screenshot({path:'docs/preview/home-desktop.png',fullPage:true});await checkWidth();
+ await expect(page.locator('app-product-card')).toHaveCount(4);
+ await visit('/store');await expect(page.locator('app-product-card')).toHaveCount(17);
+ await page.getByRole('button',{name:'Head Wear',exact:true}).click();await expect(page.locator('app-product-card')).toHaveCount(3);
+ await page.getByRole('button',{name:'All essentials',exact:true}).click();
+ await page.getByRole('searchbox').fill('hoodies');await expect(page.locator('app-product-card')).toHaveCount(1);
+ await page.getByRole('searchbox').fill('not-a-product');await page.getByText('No matches just yet.').waitFor();
+ await page.getByRole('button',{name:'Reset filters'}).click();await expect(page.locator('app-product-card')).toHaveCount(17);
+ await page.getByRole('button',{name:'View Joggers',exact:true}).click();
+ await page.locator('#size').click();await page.getByRole('option',{name:'M',exact:true}).click();
+ await page.getByRole('button',{name:'Add to bag',exact:true}).click();
+ await page.getByRole('button',{name:'Close',exact:true}).click();
+ await page.getByRole('button',{name:'Open bag, 1 items'}).click();
+ const drawer=page.locator('p-drawer');await drawer.getByText('R450',{exact:true}).waitFor();
+ await drawer.getByRole('button',{name:'Increase quantity of Joggers'}).click();
+ await drawer.getByText('R850',{exact:true}).waitFor();
+ await drawer.getByRole('button',{name:'Increase quantity of Joggers'}).click();
+ await drawer.getByText('Free',{exact:true}).waitFor();
+ const href=await drawer.getByRole('link',{name:'Ask the team by email'}).getAttribute('href');
+ assert(decodeURIComponent(href).includes('3 x Joggers — M'));
+ assert(decodeURIComponent(href).includes('Shipping: R0'));
+ await page.reload();await page.getByRole('button',{name:'Open bag, 3 items'}).waitFor();
+ await page.getByRole('button',{name:'Open bag, 3 items'}).click();await page.locator('p-drawer').getByRole('button',{name:'Remove Joggers'}).click();await page.getByText('A little room for purpose.').waitFor();
+ await page.getByRole('button',{name:'Close',exact:true}).click();
+ await page.screenshot({path:'docs/preview/store-desktop.png',fullPage:true});
+ for(const path of ['/about','/faq','/missing-page']){await visit(path);await checkWidth();}
+ await visit('/faq');await page.getByRole('button',{name:'How much does delivery cost?'}).click();await page.getByText('Delivery is R50 across South Africa.',{exact:false}).waitFor();
+ await page.setViewportSize({width:390,height:844});
+ for(const path of ['/','/store','/about','/faq']){await visit(path);await checkWidth();const broken=await page.locator('img').evaluateAll(images=>images.filter(i=>i.complete&&i.naturalWidth===0).map(i=>i.src));assert.deepEqual(broken,[]);}
+ await visit('/');await page.screenshot({path:'docs/preview/home-mobile.png',fullPage:true});
+ await page.getByRole('button',{name:'Toggle navigation'}).click();await page.getByRole('navigation',{name:'Main navigation'}).getByRole('link',{name:'Store',exact:true}).click();await page.locator('app-store').waitFor();assert.equal(await page.getByRole('button',{name:'Toggle navigation'}).getAttribute('aria-expanded'),'false');
+ assert.deepEqual(errors,[],'Browser runtime errors');
+ await page.setViewportSize({width:1440,height:1000});await visit('/store');
+ await page.getByRole('button',{name:'View Joggers',exact:true}).click();await page.getByRole('button',{name:'Add to bag',exact:true}).click();await page.getByRole('button',{name:'Close',exact:true}).click();
+ await page.getByRole('button',{name:'Open bag, 1 items'}).click();await page.getByRole('link',{name:'Review & checkout'}).click();await page.locator('app-checkout').waitFor();
+ await page.getByRole('button',{name:'Preview order',exact:true}).click();await page.getByRole('alert').waitFor();
+ await page.getByLabel('Full name',{exact:true}).fill('Preview Customer');await page.getByLabel('Email address',{exact:true}).fill('preview@example.test');await page.getByLabel('Contact number',{exact:true}).fill('0711234567');await page.getByLabel('Street address',{exact:true}).fill('1 Preview Street');await page.getByLabel('City / town',{exact:true}).fill('Pretoria');await page.locator('#customer-province').click();await page.getByRole('option',{name:'Gauteng',exact:true}).click();await page.getByLabel('Postal code',{exact:true}).fill('0002');
+ await checkWidth();await page.screenshot({path:'docs/preview/checkout-desktop.png',fullPage:true});await page.setViewportSize({width:390,height:844});await checkWidth();await page.screenshot({path:'docs/preview/checkout-mobile.png',fullPage:true});
+ await page.getByRole('button',{name:'Preview order',exact:true}).click();await page.getByText('Your checkout preview is ready.',{exact:true}).waitFor();assert.equal(await page.getByRole('button',{name:'Open bag, 1 items'}).count(),1);assert.deepEqual(errors,[]);
+ await browser.close();console.log('PASS: storefront routes, filters, options, bag, shipping boundary, FAQ, mobile navigation, responsive widths and full checkout preview with validation. No emails sent.');
+}
+main().catch(async e=>{console.error(e);if(debugPage){console.log(await debugPage.locator('body').innerText());await debugPage.screenshot({path:'docs/preview/check-failure.png'});}process.exit(1);});
