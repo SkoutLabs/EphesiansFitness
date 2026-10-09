@@ -16,10 +16,10 @@ const attempts=new Map();
 function reply(res,status,body){res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(body));}
 const server=http.createServer(async(req,res)=>{
  if(req.method==='GET'&&req.url==='/api/checkout/config')return reply(res,200,{mode});
- if(req.method!=='POST'||req.url!=='/api/orders')return reply(res,404,{message:'Not found.'});
+ if(req.method!=='POST'||!['/api/orders','/api/orders/email'].includes(req.url))return reply(res,404,{message:'Not found.'});
  const ip=req.socket.remoteAddress;const now=Date.now();const entry=attempts.get(ip)||{count:0,expires:now+60000};if(now>entry.expires){entry.count=0;entry.expires=now+60000;}entry.count++;attempts.set(ip,entry);if(entry.count>10)return reply(res,429,{message:'Please wait a minute before trying again.'});
  if(!req.headers['content-type']?.includes('application/json'))return reply(res,415,{message:'JSON is required.'});
- try{let body='';for await(const chunk of req){body+=chunk;if(Buffer.byteLength(body)>32768){reply(res,413,{message:'Request too large.'});return;}}const result=await service.submit(JSON.parse(body),req.headers['idempotency-key']);reply(res,200,result);}
+ try{let body='';for await(const chunk of req){body+=chunk;if(Buffer.byteLength(body)>32768){reply(res,413,{message:'Request too large.'});return;}}const input=JSON.parse(body);const result=req.url==='/api/orders/email'?await service.resend(input.requestId):await service.submit(input,req.headers['idempotency-key']);reply(res,200,result);}
  catch(error){if(error instanceof ValidationError||error instanceof SyntaxError)reply(res,400,{message:error instanceof SyntaxError?'Invalid request.':error.message});else{console.error('Checkout processing failed:',error.code||error.name);reply(res,503,{message:'We could not finish processing your order. Your bag is safe; retry with the same details or contact the team.'});}}
 });
 server.requestTimeout=30000;server.headersTimeout=15000;

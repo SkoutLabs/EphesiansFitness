@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 export const routes: Routes = [
+  { path: 'workouts', loadComponent: () => import('./pages/workouts.component').then(m => m.WorkoutsComponent), title: 'Workouts | Ephesians Fitness' },
+  { path: 'terms', loadComponent: () => import('./pages/terms.component').then(m => m.TermsComponent), title: 'Terms & Conditions | Ephesians Fitness' },
   { path: 'checkout', loadComponent: () => import('./pages/checkout.component').then(m => m.CheckoutComponent), title: 'Checkout | Ephesians Fitness' },
   { path: '', pathMatch: 'full', loadComponent: () => import('./pages/home.component').then(m => m.HomeComponent), title: 'Ephesians Fitness | Faith meets fitness' },
   { path: 'store', loadComponent: () => import('./pages/store.component').then(m => m.StoreComponent), title: 'Shop the collection | Ephesians Fitness' },

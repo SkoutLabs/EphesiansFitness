@@ -27,3 +27,17 @@ Restart the checkout server after configuration changes. Live checkout reports s
 The new API is a single-process Node backend using private JSON files. It is suitable for local preview and a single-instance host with persistent disk; multi-instance deployment requires a shared transactional database and an email outbox. A process crash between SMTP acceptance and saving its delivery flag can result in a repeated email on retry. The API is not connected to the old CSV administrator/account system. Configure a same-origin reverse proxy for `/api`, persistent private storage, real credentials and HTTPS when deploying. No production changes were made.
 
 The existing policy of free shipping **over** R800 is retained. The old checkout code used free shipping **at** R800; this difference is now consistent with the storefront copy.
+
+## EFT checkout screen
+
+Customers review their bag and delivery details, then place their order. The confirmation screen shows the server-calculated amount, reference, configured banking details, delivery address (including suburb and optional address line 2) and proof-of-payment email link. Copy buttons and a PDF download action let customers retain instructions; email remains a backup. Orders stay awaiting payment until funds are manually verified. No payment gateway or additional payment fees were introduced. Preview explicitly prohibits payment and labels missing banking fields. Only public payment instructions are returned by the API; email credentials are never returned.
+
+The Send email action resends customer payment instructions to the stored order email; it never accepts a replacement recipient or creates another order. The private checkout request identifier authorizes resends, with a one-minute cooldown and API rate limiting. Preview rewrites local email previews and sends no mail. Save PDF downloads selectable payment and delivery instructions without opening a print dialog.
+
+## Terms and conditions
+
+The /terms page is linked from the footer and opens in a new tab from checkout so the entered address is retained. A required, initially unchecked acceptance checkbox is validated in the browser and API. The current version comes from src/app/core/terms.json; each saved order records termsVersion and a server-generated termsAcceptedAt. Update the version whenever the terms change. Existing orders retain their accepted version.
+
+The initial wording follows existing EFT, R50/free-over-R800 delivery, estimated 7–14 business day delivery and 30-day change-of-mind return policies. Statutory rights are separate from the voluntary return policy. Sources checked: https://www.gov.za/sites/default/files/gcis_document/201409/a25-02.pdf (sections 43–44) and https://www.thencc.org.za/wp-content/uploads/2023/11/Explanatory-Note-7-of-2023.pdf (CPA section 56 remedies).
+
+Before publishing, complete the seller’s legal identity, physical/service address and applicable registration information once supplied by the owner; none were invented. Confirm operational delivery/return policies and the seller disclosures required by ECTA section 43. The personal-information paragraph describes checkout only and is not a complete privacy notice.
